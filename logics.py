@@ -1,6 +1,6 @@
 import nltk
-#nltk.download('brown')
-#nltk.download('universal_tagset')
+nltk.download('brown')
+nltk.download('universal_tagset')
 from nltk.corpus import brown
 
 
