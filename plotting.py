@@ -31,8 +31,8 @@ class plotter():
         ax.set_xticklabels(names)
         ax.legend()
 
-        ax.bar_label(CRFbar, padding=3)
-        ax.bar_label(HMMbar, padding=3)
+#        ax.bar_label(CRFbar, padding=3)
+#        ax.bar_label(HMMbar, padding=3)
 
         fig.tight_layout()
 

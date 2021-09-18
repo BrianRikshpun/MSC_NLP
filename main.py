@@ -12,6 +12,3 @@ if __name__ == '__main__':
     chp = plotting.plotter(precisionC, recallC, f1C, accC, precisionH, recallH, f1H, accH)
     chp.plotM()
 
-
-
-
