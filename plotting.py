@@ -2,31 +2,33 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 class plotter():
-    def __init__(self, precisionC, recallC, f1C, accC, precisionH, recallH, f1H, accH):
+    def __init__(self, precisionC, recallC, f1C, accC):
         self.precisionC = precisionC
         self.recallC = recallC
         self.f1C = f1C
         self.accC = accC
-        self.precisionH = precisionH
-        self.recallH = recallH
-        self.f1H = f1H
-        self.accH = accH
 
-    def plotM(self):
+
+
+    def plotM(self, title = "none"):
+
+        def addlabels(x, y):
+            for i in range(len(x)):
+                plt.text(i, round(y[i],5), round(y[i],5))
+
+
         names = ['Accuracy', 'F1_core', 'Precision', 'Recall']
         valuesC = [self.accC, self.f1C, self.precisionC, self.recallC]
-        valuesH = [self.accH, self.f1H, self.precisionH, self.recallH]
 
         x = np.arange(len(names))  # the label locations
         width = 0.35
 
         fig, ax = plt.subplots()
-        CRFbar = ax.bar(x - width / 2, valuesC, width, label='CRF')
-        HMMbar = ax.bar(x + width / 2, valuesH, width, label='HMM')
+        CRFbar = ax.bar(x - width / 2, valuesC, width)
 
         # Add some text for labels, title and custom x-axis tick labels, etc.
         ax.set_ylabel('Percentage')
-        ax.set_title('Comparison of model performance for language analysis')
+        ax.set_title(title)
         ax.set_xticks(x)
         ax.set_xticklabels(names)
         ax.legend()
@@ -35,5 +37,5 @@ class plotter():
 #        ax.bar_label(HMMbar, padding=3)
 
         fig.tight_layout()
-
+        addlabels(x,valuesC)
         plt.show()

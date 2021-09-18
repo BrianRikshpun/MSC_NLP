@@ -4,11 +4,10 @@ import logics
 import pickle
 import warnings
 warnings.filterwarnings('ignore')
-
-
+max_it = 100
 class crfClinet():
 
-    def __init__(self, fit=False):
+    def __init__(self, fit=True, max_it = 1000):
 
         testD, tagD, wd, corpus = logics.trainingSet()
         self.fit = fit
@@ -20,7 +19,7 @@ class crfClinet():
             algorithm='lbfgs',
             c1=0.1,
             c2=0.1,
-            max_iterations=100,
+            max_iterations=max_it,
             all_possible_transitions=True
         )
 
